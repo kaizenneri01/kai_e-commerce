@@ -1,24 +1,23 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
+// import firebase from "firebase/app";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+// import "firebase/firestore";
+// import "firebase/auth";
 
-export const config = {
-  apiKey: "AIzaSyA8cRMJpLQOPn12H9kxccC-EiZ24_A-izA",
-  authDomain: "kaizen-ecommerce-fcfa5.firebaseapp.com",
-  projectId: "kaizen-ecommerce-fcfa5",
-  storageBucket: "kaizen-ecommerce-fcfa5.appspot.com",
-  messagingSenderId: "1022806704503",
-  appId: "1:1022806704503:web:f0a3b78019b90be56d6172",
-  measurementId: "G-0R4HMDFLS1",
-};
+const fireBaseConfig = firebase.initializeApp({
+  apiKey: "AIzaSyCC1CQj5IRNMS8tb12t_hXioQw-RpWVH3M",
+  authDomain: "kai-ecommerce.firebaseapp.com",
+  databaseURL:
+    "https://kai-ecommerce-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "kai-ecommerce",
+  storageBucket: "kai-ecommerce.appspot.com",
+  messagingSenderId: "408777995830",
+  appId: "1:408777995830:web:36d8e2e4fbeb322b394a97",
+});
 
-firebase.initializeApp(config);
-
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
-
+const auth = fireBaseConfig.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+const dataBase = fireBaseConfig.firestore;
+const storage = fireBaseConfig.storage;
 
-export default firebase;
+export { auth, fireBaseConfig, provider, dataBase, storage };
