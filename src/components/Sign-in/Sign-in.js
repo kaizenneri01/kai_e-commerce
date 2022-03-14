@@ -60,11 +60,12 @@ class SignIn extends Component {
             label="password"
             required
           />
-
-          <Custombutton type="sbmit"> Sign in</Custombutton>
-          <Custombutton onClick={this.handleLogIn}>
-            sign in with Google
-          </Custombutton>
+          <div className="buttons">
+            <Custombutton type="sbmit"> Sign in</Custombutton>
+            <Custombutton onClick={this.handleLogIn} isGoogleSignIn>
+              sign in with Google
+            </Custombutton>
+          </div>
         </form>
       </div>
     );

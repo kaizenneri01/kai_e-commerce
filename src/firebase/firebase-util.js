@@ -1,8 +1,6 @@
-// import firebase from "firebase/app";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-// import "firebase/firestore";
-// import "firebase/auth";
+import "firebase/compat/firestore";
 
 const fireBaseConfig = firebase.initializeApp({
   apiKey: "AIzaSyCC1CQj5IRNMS8tb12t_hXioQw-RpWVH3M",
@@ -17,6 +15,7 @@ const fireBaseConfig = firebase.initializeApp({
 
 const auth = fireBaseConfig.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
 const dataBase = fireBaseConfig.firestore;
 const storage = fireBaseConfig.storage;
 
