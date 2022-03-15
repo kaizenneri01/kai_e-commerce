@@ -32,7 +32,7 @@ const createUserProfileDocument = async (userAuth, additionalData) => {
         ...additionalData,
       });
     } catch (error) {
-      console.log("error creatin user", error.message);
+      console.log("error creating user", error.message);
     }
   }
 
